@@ -1,0 +1,5 @@
+Generate certificate:
+
+$cert = New-SelfSignedCertificate -DnsName "localhost" -CertStoreLocation "cert:\CurrentUser\My" -NotAfter (Get-Date).AddYears(5)
+$pwd = ConvertTo-SecureString -String "password" -Force -AsPlainText
+Export-PfxCertificate -Cert $cert -FilePath "server.pfx" -Password $pwd
